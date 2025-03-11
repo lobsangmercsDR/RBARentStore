@@ -32,6 +32,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_branch: gh-pages  # Subir archivos a gh-pages
-        publish_dir: ./dist  # Subir la carpeta dist
+        publish_dir: ./dist  # Asegurar que se sube la carpeta correcta
         force_orphan: true  # Borra la rama gh-pages antes de subir nuevos archivos
-        enable_jekyll: false  # Evitar que GitHub Pages intente procesar Jekyll
+        enable_jekyll: false  # Evita que GitHub Pages ignore index.html
+        keep_files: false  # Asegurar que se suban TODOS los archivos
