@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/RBARentStore/', // Nombre del repositorio en GitHub
+  base: '/RBARentStore/', // Nombre EXACTO del repositorio
   build: {
     outDir: 'dist',
+    assetsDir: 'assets',
   },
 });
