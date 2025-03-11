@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # Se ejecuta cuando subimos cambios a master
+      - master
 
 permissions:
   contents: write
@@ -19,19 +19,20 @@ jobs:
     - name: 🔧 Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 20  # React Router 7 requiere Node 20+
+        node-version: 20
 
     - name: 📦 Install dependencies
       run: npm install
 
     - name: 🏗️ Build project
-      run: npm run build  # Genera la carpeta dist
+      run: npm run build
 
     - name: 🚀 Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages  # Subir archivos a gh-pages
-        publish_dir: ./dist  # Asegurar que se sube la carpeta correcta
-        force_orphan: true  # Borra gh-pages antes de subir nuevos archivos
-        enable_jekyll: false  # Evita que GitHub Pages ignore archivos
+        publish_branch: gh-pages
+        publish_dir: ./dist
+        force_orphan: true  # Borra la rama antes de subir
+        enable_jekyll: false
+        commit_message: "🚀 New deployment $(date)"
