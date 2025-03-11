@@ -3,7 +3,7 @@ import AdminDashboard from "./pages/dashboard/AdminDashboard";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/RBARentStore/"> {/* Configura la base correctamente */}
       <Routes>
         <Route path="/" element={<AdminDashboard />} />
       </Routes>
